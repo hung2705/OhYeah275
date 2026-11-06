@@ -1,0 +1,13 @@
+# Temporary and unrelated directories
+.agents/
+AutoRewarder/
+cloakbrowser/
+Microsoft-Rewards-Script/
+netflix-otp-hub/
+rewards-farmer/
+*.rar
+*.txt
+*.html
+*.png
+*.bat
+TEST_READY.md
