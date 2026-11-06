@@ -1,20 +1,31 @@
-# Bộ Cấu Hình & Module Hợp Nhất Shadowrocket iOS: Locket Gold VIP & YouTube Premium
+# Bộ Cấu Hình & Module Hợp Nhất Shadowrocket iOS: Locket Gold VIP & YouTube Premium - hungw.
 
-Bộ cấu hình standalone (`shadowrocket_locket_youtube.conf`) và module tiện ích mở rộng (`shadowrocket_locket_youtube.sgmodule`) chuẩn hóa cho ứng dụng **Shadowrocket** trên iOS, tích hợp trọn vẹn hai tính năng phổ biến nhất hiện nay: mở khóa bản quyền **Locket Gold VIP** vĩnh viễn và gói **YouTube Premium** không quảng cáo.
+Bộ cấu hình standalone (`shadowrocket_locket_youtube.conf`) và module tiện ích mở rộng (`shadowrocket_locket_youtube.sgmodule`) chuẩn hóa cho ứng dụng **Shadowrocket** trên iOS bởi **hungw.**, tích hợp trọn vẹn hai tính năng phổ biến nhất hiện nay: mở khóa bản quyền **Locket Gold VIP** vĩnh viễn (kèm **310+ Custom Captions** tổng hợp từ 10+ nguồn) và gói **YouTube Premium** không quảng cáo.
 
 ---
 
 ## 🌟 Tính Năng Nổi Bật
 
-### 💛 1. Locket Gold VIP (Mở Khóa Toàn Diện)
+### 💛 1. Locket Gold VIP - hungw. Edition (Mở Khóa Toàn Diện)
 - **Kích hoạt gói thuê bao Gold vĩnh viễn**: Bẻ khóa thông qua RevenueCat (`api.revenuecat.com` & `api.rc-backup.com`) với hạn dùng trọn đời đến năm 2099.
-- **Mở khóa 179+ cấu hình Firebase Remote Config**:
+- **Mở khóa 360+ cấu hình Firebase Remote Config**:
   - Gỡ bỏ hoàn toàn giới hạn thời lượng quay video: kéo dài lên đến **60 giây** (so với mặc định 3s - 10s).
-  - Tải ảnh chất lượng gốc siêu nét: kích thước tối đa **2560px**, chất lượng 1.0 (Full HD+).
-  - Mở khóa toàn bộ bộ lọc máy ảnh (Looks, Costumes, Light & FX, Cute, Special) và các chủ đề máy ảnh (Camera Theme).
-  - Tăng giới hạn số lượng bạn bè lên tới **10.000 bạn bè** (không còn bị giới hạn 20 hay 50 bạn).
-  - Mở khóa **14 danh mục khung hình, chú thích độc quyền** (Exclusive Captions: LAMDev VIP, Gen Z Slay, TikTok Trend, Meme hài hước, Holiday,...).
-  - Kích hoạt tính năng khôi phục chuỗi (Streak Recovery) và chọn biểu tượng ứng dụng độc quyền (App Icon Picker).
+  - Tải ảnh chất lượng gốc siêu nét: kích thước tối đa **2560px - 4096px**, chất lượng 1.0 (Full HD+ / 2K).
+  - Mở khóa toàn bộ bộ lọc máy ảnh (Looks, Costumes, Light & FX, Cute, Special), chủ đề máy ảnh (Camera Theme) và toàn bộ **Khung viền Widget cao cấp ngoài màn hình chính (Custom Widget Frames)**.
+  - Tăng giới hạn số lượng bạn bè lên tới **999.999 bạn bè** (không giới hạn).
+  - **Mega Pack 310+ Custom Captions (Chú thích tùy chỉnh) chia làm 11 danh mục**:
+    1. `👑 Độc Quyền hungw.` (10 mẫu VIP mang thương hiệu `hungw.`)
+    2. `🎨 Tính Năng Gốc Locket` (14 tính năng tương tác: Nhạc đang phát, Thời tiết, Vị trí, Giờ, Chuỗi, Cung hoàng đạo, Bình chọn Poll, Bảng màu, Đếm số Locket, Link, Trích dẫn Quote, Tin nóng Breaking News)
+    3. `☑️ Chứng Nhận Của Locket` (18 mẫu huy hiệu tích xanh Apple SF Symbols `checkmark.seal.fill`, Vương miện `crown.fill`, Đang trực tiếp `circle.fill`, Quay 4K `record.circle.fill`)
+    4. `💕 Tình Yêu & Cơm Chó` (32 mẫu thả thính & cặp đôi ngọt ngào)
+    5. `💅 Gen Z Slay & Xéo Xắt` (42 mẫu slay, thần thái, visual đỉnh nóc)
+    6. `🔥 Trend TikTok & Độc Lạ` (54 mẫu câu nói viral TikTok)
+    7. `🤡 Meme & Hài Hước` (41 mẫu hài hước, hóng drama, check VAR)
+    8. `🫠 Bất Ổn & Hết Cứu` (59 mẫu tâm trạng đêm khuya, overthinking)
+    9. `☕ Daily, Chill & Đời Sống` (36 mẫu cà phê, trà sữa, Matcha, Mixue, đi biển, đi ngủ, pin 1%)
+    10. `💸 Deadline & Tiền Bạc` (10 mẫu đi làm, học tập, độc lập tài chính)
+    11. `🎄 Lễ Hội & Sự Kiện` (14 mẫu Tết Nguyên Đán, Valentine, 8/3, 2/9, Trung Thu, 20/10, Halloween, Giáng Sinh, Năm Mới - đã mở khóa giới hạn thời gian để dùng quanh năm 24/7).
+  - Kích hoạt tính năng khôi phục chuỗi miễn phí (Free Streak Recovery) và chọn biểu tượng ứng dụng độc quyền (App Icon Picker).
 - **Huy hiệu vàng trang cá nhân (Gold Badge)**: Duy trì huy hiệu xác minh màu vàng Gold VIP cố định và đồng bộ hóa trên mọi màn hình bạn bè, feed và hồ sơ cá nhân.
 - **Xóa bộ nhớ đệm ETag**: Loại bỏ header `x-revenuecat-etag` ngăn chặn phản hồi `304 Not Modified`, đảm bảo tài khoản luôn nhận trạng thái Gold VIP mới nhất.
 
