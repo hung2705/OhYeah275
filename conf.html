@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cài Đặt Cấu Hình (.conf) Shadowrocket - hungw.</title>
+    <meta http-equiv="refresh" content="0;url=shadowrocket://config/add/https://raw.githubusercontent.com/hung2705/OhYeah275/refs/heads/main/shadowrocket_locket_youtube.conf">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --primary: #10b981;
+            --primary-hover: #059669;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .card {
+            background-color: var(--card);
+            border-radius: 20px;
+            padding: 30px 24px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        .icon { font-size: 52px; margin-bottom: 12px; }
+        h1 { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: var(--primary); }
+        p { font-size: 14px; color: var(--text-muted); line-height: 1.5; margin-bottom: 22px; }
+        .btn-group { display: flex; flex-direction: column; gap: 12px; }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            outline: none;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+        }
+        .btn-primary:active { transform: scale(0.98); }
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .btn-secondary:active { background-color: rgba(255, 255, 255, 0.15); transform: scale(0.98); }
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #10b981;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            z-index: 100;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+        .footer { margin-top: 20px; font-size: 12px; color: var(--text-muted); }
+        .footer a { color: var(--primary); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="icon">⚙️</div>
+        <h1>Đang Mở Trong Shadowrocket...</h1>
+        <p>Hệ thống đang tự động bật nhảy và sao chép link Cấu hình (.conf) vào Shadowrocket. Nếu không tự mở, hãy nhấn nút dưới đây:</p>
+        
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="openAndCopy()">
+                <span>⚡ Mở & Thêm Vào Shadowrocket</span>
+            </button>
+            <button class="btn btn-secondary" onclick="copyLink()">
+                <span>📋 Nhấn Sao Chép Link Cấu Hình</span>
+            </button>
+        </div>
+
+        <div class="footer">
+            Tác giả: <strong>hungw.</strong> • <a href="index.html">Trang chủ Hub</a>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">✅ Đã sao chép liên kết vào bộ nhớ tạm!</div>
+
+    <script>
+        const CONF_URL = "https://raw.githubusercontent.com/hung2705/OhYeah275/refs/heads/main/shadowrocket_locket_youtube.conf";
+        const APP_SCHEME = "shadowrocket://config/add/" + CONF_URL;
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            if (msg) toast.innerText = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2200);
+        }
+
+        function copyToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                return navigator.clipboard.writeText(text);
+            }
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+            try {
+                document.execCommand("copy");
+            } catch (err) {}
+            document.body.removeChild(textarea);
+            return Promise.resolve();
+        }
+
+        function copyLink() {
+            copyToClipboard(CONF_URL).then(() => {
+                showToast("✅ Đã chép link Cấu hình (.conf)!");
+            });
+        }
+
+        function openAndCopy() {
+            copyToClipboard(CONF_URL);
+            window.location.href = APP_SCHEME;
+        }
+
+        // Tự động sao chép và chuyển hướng khi vào trang
+        window.addEventListener("DOMContentLoaded", () => {
+            copyToClipboard(CONF_URL).catch(() => {});
+            setTimeout(() => {
+                window.location.href = APP_SCHEME;
+            }, 100);
+        });
+    </script>
+</body>
+</html>

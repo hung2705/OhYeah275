@@ -8,6 +8,9 @@ rewards-farmer/
 *.rar
 *.txt
 *.html
+!index.html
+!module.html
+!conf.html
 *.png
 *.bat
 TEST_READY.md

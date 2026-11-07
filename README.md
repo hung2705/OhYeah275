@@ -2,17 +2,19 @@
 
 > Tác giả: **hungw.** • Repository: [hung2705/OhYeah275](https://github.com/hung2705/OhYeah275)
 
-### 🚀 Link Cài Đặt (Dán vào Shadowrocket)
-- **Module (`.sgmodule` - Khuyên dùng):** `https://raw.githubusercontent.com/hung2705/OhYeah275/refs/heads/main/shadowrocket_locket_youtube.sgmodule`
-- **Config (`.conf`):** `https://raw.githubusercontent.com/hung2705/OhYeah275/refs/heads/main/shadowrocket_locket_youtube.conf`
+### ⚡ Cài Đặt Nhanh (1-Click Bật Nhảy Shadowrocket)
+- **Mô-đun (`.sgmodule` - Khuyên dùng):** [👉 Bấm để Thêm vào Shadowrocket](https://hung2705.github.io/OhYeah275/module.html)
+```text
+https://raw.githubusercontent.com/hung2705/OhYeah275/refs/heads/main/shadowrocket_locket_youtube.sgmodule
+```
+- **Cấu hình (`.conf`):** [👉 Bấm để Thêm vào Shadowrocket](https://hung2705.github.io/OhYeah275/conf.html)
 
 ### ✨ Tính Năng Nổi Bật
-- **Locket Gold VIP:** Kích hoạt Gold vĩnh viễn (từ 29/10/2023), video HD 60s, khung viền Widget, huy hiệu vàng chính chủ, và kho **[317+ Custom Captions](LOCKET_CAPTIONS.md)**.
-- **YouTube Premium:** Chặn 100% quảng cáo video & Shorts, phát âm thanh khi tắt màn hình, cửa sổ PiP thu nhỏ, tự động dịch phụ đề Tiếng Việt.
+- **Locket Gold VIP:** Kích hoạt vĩnh viễn (29/10/2023), video HD 60s, khung viền, huy hiệu chính chủ, kho **[317+ Custom Captions](LOCKET_CAPTIONS.md)**.
+- **YouTube Premium:** Chặn 100% quảng cáo video & Shorts, phát nền tắt màn hình, PiP thu nhỏ, dịch phụ đề.
 
 ### 📲 Hướng Dẫn Kích Hoạt
-1. Copy link **Module** dán vào mục **Mô-đun** trong Shadowrocket.
-2. Bật **Giải mã HTTPS (HTTPS Decryption)** -> Cài đặt chứng chỉ Root CA.
-3. Vào **Cài đặt iOS > Cài đặt chung > Giới thiệu > Cài đặt tin cậy chứng nhận** -> Bật **Tin cậy đầy đủ**.
-4. Bật VPN Shadowrocket, vuốt tắt app Locket / YouTube và mở lại để sử dụng.
-*(Cập nhật repo: `git init` • `git remote add origin https://github.com/hung2705/OhYeah275.git` • `git push -u origin main`)*
+1. Nhấn link 1-Click ở trên hoặc sao chép link dán vào Shadowrocket.
+2. Shadowrocket > **Giải mã HTTPS** > Cài đặt chứng chỉ CA > Cài đặt iOS bật **Tin cậy đầy đủ**.
+3. Bật VPN Shadowrocket, vuốt tắt ứng dụng Locket & YouTube rồi mở lại.
+*(Trang cài đặt trực quan: [hung2705.github.io/OhYeah275](https://hung2705.github.io/OhYeah275/))*

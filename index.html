@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locket Gold VIP & YouTube Premium - hungw.</title>
+    <style>
+        :root {
+            --bg: #0b0f19;
+            --card: #151d30;
+            --card-border: rgba(245, 158, 11, 0.25);
+            --gold: #f59e0b;
+            --gold-light: #fbbf24;
+            --emerald: #10b981;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 30px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 540px;
+            width: 100%;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--gold);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 30%, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 22px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 17px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .card-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+        .btn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        @media (max-width: 400px) {
+            .btn-grid { grid-template-columns: 1fr; }
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            border: none;
+            transition: all 0.2s;
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+        .btn-gold:active { transform: scale(0.97); }
+        .btn-emerald {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+        .btn-emerald:active { transform: scale(0.97); }
+        .btn-copy {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .btn-copy:active { background: rgba(255, 255, 255, 0.15); transform: scale(0.97); }
+        
+        .steps {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 12px;
+            padding: 14px 16px;
+            font-size: 13px;
+            line-height: 1.7;
+            color: #cbd5e1;
+        }
+        .steps ol { padding-left: 20px; }
+        .steps li { margin-bottom: 6px; }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #10b981;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            z-index: 100;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+        .footer {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+        .footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="badge">🔥 BẢN QUYỀN HUNGW.</div>
+            <h1>Locket VIP & YouTube No Ads</h1>
+            <p class="subtitle">Kích hoạt Gold vĩnh viễn (2023) • 317+ Caption • Chặn 100% Ads</p>
+        </div>
+
+        <!-- Card Module -->
+        <div class="card" style="border-color: rgba(245, 158, 11, 0.4);">
+            <div class="card-title">
+                <span>⚡</span>
+                <span>Mô-đun Shadowrocket (.sgmodule)</span>
+                <span style="font-size: 11px; background: #f59e0b; color: #000; padding: 2px 8px; border-radius: 10px; margin-left: auto;">Khuyên dùng</span>
+            </div>
+            <p class="card-desc">Cài đặt dạng mô-đun độc lập, không làm mất danh sách proxy hoặc cấu hình VPN hiện tại.</p>
+            <div class="btn-grid">
+                <a href="module.html" class="btn btn-gold">
+                    <span>🚀 Cài 1-Click</span>
+                </a>
+                <button onclick="copyModule()" class="btn btn-copy">
+                    <span>📋 Copy Link</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Card Config -->
+        <div class="card" style="border-color: rgba(16, 185, 129, 0.3);">
+            <div class="card-title">
+                <span>⚙️</span>
+                <span>Cấu hình Toàn Diện (.conf)</span>
+            </div>
+            <p class="card-desc">Cấu hình hoàn chỉnh bao gồm đầy đủ quy tắc DNS, chặn UDP 443 và MITM định tuyến.</p>
+            <div class="btn-grid">
+                <a href="conf.html" class="btn btn-emerald">
+                    <span>🚀 Cài 1-Click</span>
+                </a>
+                <button onclick="copyConf()" class="btn btn-copy">
+                    <span>📋 Copy Link</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Hướng dẫn kích hoạt -->
+        <div class="card">
+            <div class="card-title">
+                <span>📲</span>
+                <span>Hướng Dẫn Kích Hoạt Nhanh</span>
+            </div>
+            <div class="steps">
+                <ol>
+                    <li>Bấm <strong>Cài 1-Click</strong> để mở Shadowrocket và lưu Module/Config.</li>
+                    <li>Mở Shadowrocket > <strong>Giải mã HTTPS (HTTPS Decryption)</strong> > Cài đặt chứng chỉ Root.</li>
+                    <li>Vào <strong>Cài đặt iOS > Cài đặt chung > Giới thiệu > Cài đặt tin cậy chứng nhận</strong> > Bật <strong>Tin cậy đầy đủ</strong>.</li>
+                    <li>Bật VPN Shadowrocket, vuốt tắt app Locket / YouTube và mở lại.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="footer">
+            Tác giả: <strong>hungw.</strong> • Repo: <a href="https://github.com/hung2705/OhYeah275" target="_blank">hung2705/OhYeah275</a>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">✅ Đã sao chép liên kết thành công!</div>
+
+    <script>
+        const MODULE_URL = "https://raw.githubusercontent.com/hung2705/OhYeah275/refs/heads/main/shadowrocket_locket_youtube.sgmodule";
+        const CONF_URL = "https://raw.githubusercontent.com/hung2705/OhYeah275/refs/heads/main/shadowrocket_locket_youtube.conf";
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            if (msg) toast.innerText = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2200);
+        }
+
+        function copyToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                return navigator.clipboard.writeText(text);
+            }
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+            try {
+                document.execCommand("copy");
+            } catch (err) {}
+            document.body.removeChild(textarea);
+            return Promise.resolve();
+        }
+
+        function copyModule() {
+            copyToClipboard(MODULE_URL).then(() => {
+                showToast("✅ Đã chép link Module Shadowrocket!");
+            });
+        }
+
+        function copyConf() {
+            copyToClipboard(CONF_URL).then(() => {
+                showToast("✅ Đã chép link Cấu hình (.conf)!");
+            });
+        }
+    </script>
+</body>
+</html>
