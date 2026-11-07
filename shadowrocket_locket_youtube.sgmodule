@@ -47,7 +47,7 @@ locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleap
 locket_badge = type=http-request,pattern=^https:\/\/api\.locketcamera\.com\/changeProfileInfo,script-path=https://raw.githubusercontent.com/hung2705/OhYeah275/refs/heads/main/js/locket_profile.js,timeout=60
 
 # 5. Đồng bộ hóa thông tin người dùng hiển thị huy hiệu vàng trên toàn bộ giao diện app Locket
-locket_user = type=http-response,pattern=^https:\/\/api\.locketcamera\.com\/.+,script-path=https://raw.githubusercontent.com/hung2705/OhYeah275/refs/heads/main/js/locket_profile.js,requires-body=true,max-size=-1,timeout=60
+locket_user = type=http-response,pattern=^https:\/\/api\.locketcamera\.com\/(fetchUser|users\/me|getAccount|changeProfileInfo),script-path=https://raw.githubusercontent.com/hung2705/OhYeah275/refs/heads/main/js/locket_profile.js,requires-body=true,max-size=-1,timeout=60
 
 [MITM]
 hostname = %APPEND% *.googlevideo.com, youtubei.googleapis.com, api.revenuecat.com, api.rc-backup.com, firebaseremoteconfig.googleapis.com, api.locketcamera.com

@@ -6,6 +6,17 @@
 const purchaseDate = "2024-05-18T08:30:00Z";
 const expiresDate = "2099-12-31T23:59:59Z";
 
+// Tự động trích xuất và ghi nhớ UID của chính chủ máy để chỉ cấp huy hiệu cho chủ máy
+try {
+  if (typeof $request !== "undefined" && $request && $request.url) {
+    const match = $request.url.match(/subscribers\/([^/?]+)/);
+    if (match && match[1] && typeof $persistentStore !== "undefined") {
+      $persistentStore.write(match[1], "hungw_locket_uid");
+    }
+  }
+} catch (err) {}
+
+
 let obj = {};
 try {
   if (typeof $response !== "undefined" && $response && $response.body) {
