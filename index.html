@@ -12,6 +12,7 @@
             --gold: #f59e0b;
             --gold-light: #fbbf24;
             --emerald: #10b981;
+            --blue: #3b82f6;
             --text: #f8fafc;
             --text-muted: #94a3b8;
         }
@@ -115,6 +116,12 @@
             box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
         }
         .btn-emerald:active { transform: scale(0.97); }
+        .btn-blue {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        .btn-blue:active { transform: scale(0.97); }
         .btn-copy {
             background: rgba(255, 255, 255, 0.08);
             color: var(--text);
@@ -209,6 +216,24 @@
             </div>
         </div>
 
+        <!-- Card Chặn Hạ Gold MobileConfig -->
+        <div class="card" style="border-color: rgba(59, 130, 246, 0.35);">
+            <div class="card-title">
+                <span>🛡️</span>
+                <span>Hồ Sơ Chặn Hạ Gold iOS (.mobileconfig)</span>
+                <span style="font-size: 11px; background: #3b82f6; color: #fff; padding: 2px 8px; border-radius: 10px; margin-left: auto;">Anti-Revoke</span>
+            </div>
+            <p class="card-desc">Cấu hình DNS bảo vệ Locket Gold vĩnh viễn và chống quét thu hồi (Anti-Revoke) trên iPhone/iPad.</p>
+            <div class="btn-grid">
+                <a href="https://cdn.jsdelivr.net/gh/leanhminh2104/locketlam@shadowrocket/locketlam.mobileconfig" class="btn btn-blue">
+                    <span>🛡️ Tải Hồ Sơ (Safari)</span>
+                </a>
+                <button onclick="copyMobileConfig()" class="btn btn-copy">
+                    <span>📋 Copy Link</span>
+                </button>
+            </div>
+        </div>
+
         <!-- Hướng dẫn kích hoạt -->
         <div class="card">
             <div class="card-title">
@@ -218,6 +243,7 @@
             <div class="steps">
                 <ol>
                     <li>Bấm <strong>Cài 1-Click</strong> để mở Shadowrocket và lưu Module/Config.</li>
+                    <li>Mở link <strong>Hồ Sơ Chặn Hạ Gold</strong> bằng Safari > Cho phép tải > Vào Cài đặt iOS để cài hồ sơ cấu hình.</li>
                     <li>Mở Shadowrocket > <strong>Giải mã HTTPS (HTTPS Decryption)</strong> > Cài đặt chứng chỉ Root.</li>
                     <li>Vào <strong>Cài đặt iOS > Cài đặt chung > Giới thiệu > Cài đặt tin cậy chứng nhận</strong> > Bật <strong>Tin cậy đầy đủ</strong>.</li>
                     <li>Bật VPN Shadowrocket, vuốt tắt app Locket / YouTube và mở lại.</li>
@@ -235,6 +261,7 @@
     <script>
         const MODULE_URL = "https://raw.githubusercontent.com/hung2705/OhYeah275/refs/heads/main/shadowrocket_locket_youtube.sgmodule";
         const CONF_URL = "https://raw.githubusercontent.com/hung2705/OhYeah275/refs/heads/main/shadowrocket_locket_youtube.conf";
+        const MOBILECONFIG_URL = "https://cdn.jsdelivr.net/gh/leanhminh2104/locketlam@shadowrocket/locketlam.mobileconfig";
 
         function showToast(msg) {
             const toast = document.getElementById('toast');
@@ -270,6 +297,12 @@
         function copyConf() {
             copyToClipboard(CONF_URL).then(() => {
                 showToast("✅ Đã chép link Cấu hình (.conf)!");
+            });
+        }
+
+        function copyMobileConfig() {
+            copyToClipboard(MOBILECONFIG_URL).then(() => {
+                showToast("✅ Đã chép link Hồ sơ Chặn Hạ Gold!");
             });
         }
     </script>
