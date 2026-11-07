@@ -3,7 +3,7 @@
  * Author: hungw. (https://github.com/hung2705/OhYeah275)
  */
 
-const purchaseDate = "2024-05-18T08:30:00Z";
+const purchaseDate = "2023-10-29T08:30:00Z";
 const expiresDate = "2099-12-31T23:59:59Z";
 
 // Tự động trích xuất và ghi nhớ UID của chính chủ máy để chỉ cấp huy hiệu cho chủ máy
