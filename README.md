@@ -1,247 +1,398 @@
-# Bộ Cấu Hình & Module Hợp Nhất Shadowrocket iOS: Locket Gold VIP & YouTube Premium - hungw.
+# Bộ Cấu Hình & Module Hợp Nhất Shadowrocket iOS: Locket Gold VIP & YouTube Premium
 
-Bộ cấu hình standalone (`shadowrocket_locket_youtube.conf`) và module tiện ích mở rộng (`shadowrocket_locket_youtube.sgmodule`) chuẩn hóa cho ứng dụng **Shadowrocket** trên iOS bởi **hungw.**, tích hợp trọn vẹn hai tính năng phổ biến nhất hiện nay: mở khóa bản quyền **Locket Gold VIP** vĩnh viễn (kèm **310+ Custom Captions** tổng hợp từ 10+ nguồn) và gói **YouTube Premium** không quảng cáo.
+<div align="center">
+
+![Author](https://img.shields.io/badge/Author-hungw.-blue.svg?style=for-the-badge&logo=apple)
+![Platform](https://img.shields.io/badge/Platform-iOS%2015%2B-lightgrey.svg?style=for-the-badge&logo=ios)
+![Shadowrocket](https://img.shields.io/badge/Client-Shadowrocket-orange.svg?style=for-the-badge&logo=rocket)
+![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active%20%26%20Verified-success.svg?style=for-the-badge)
+
+**Giải pháp hợp nhất Standalone Config (`.conf`) và Module mở rộng (`.sgmodule`) chuẩn hóa cho Shadowrocket trên iPhone / iPad bởi tác giả hungw.**
+
+[Tính Năng Nổi Bật](#-tính-năng-nổi-bật) • [Bộ Sưu Tập Caption Locket](#-bộ-sưu-tập-310-custom-captions-locket) • [Giải Mã UDP 443 QUIC](#-cơ-chế-chuyên-sâu-chặn-udp-cổng-443-quic--http3) • [Hướng Dẫn Cài Đặt CA](#-hướng-dẫn-cài-đặt-chứng-chỉ-ca--kích-hoạt-mitm-chuẩn-xác) • [Phát Trong Nền & PiP](#-hướng-dẫn-kích-hoạt-phát-trong-nền-background--hình-trong-hình-pip) • [Triển Khai GitHub](#-hướng-dẫn-triển-khai-lên-github--lấy-link-raw) • [FAQ](#-khắc-phục-sự-cố--câu-hỏi-thường-gặp-faq)
+
+</div>
+
+---
+
+## 📖 Giới Thiệu Tổng Quan
+
+Dự án cung cấp bộ thiết lập tối ưu toàn diện cho ứng dụng **Shadowrocket** trên iOS, tích hợp đồng thời hai tính năng giải trí và mạng xã hội được ưa chuộng nhất hiện nay:
+1. **Locket Gold VIP (hungw. Edition)**: Bẻ khóa trọn đời bản quyền Locket Gold, mở khóa hơn 360 cờ Firebase Remote Config (quay video 60 giây, tải ảnh gốc Full HD+/2K, toàn bộ khung viền widget, bộ lọc camera) và tích hợp sẵn **hơn 310+ Custom Captions** độc quyền.
+2. **YouTube Premium & Adblock (Chuẩn Upstream Maasea)**: Chặn đứng mọi loại quảng cáo (video ad, banner, Shorts), mở khóa chế độ Phát trong nền (Background Playback), Hình trong hình (Picture-in-Picture - PiP), tự động tạo phụ đề song ngữ Tiếng Việt (`vi`) và tinh gọn giao diện ứng dụng.
+
+Toàn bộ gói cấu hình được đóng gói dưới hai hình thức tiện lợi:
+- **Tập tin cấu hình độc lập (`shadowrocket_locket_youtube.conf`)**: Dành cho người dùng muốn cài đặt một lần sử dụng ngay toàn bộ quy tắc mạng, DNS tối ưu và tính năng VIP.
+- **Tập tin Module cắm & chạy (`shadowrocket_locket_youtube.sgmodule`)**: Dành cho người dùng đã có sẵn gói cấu hình proxy/VPN cá nhân (như 4G data, proxy vượt tường lửa) và chỉ muốn bật tính năng Locket & YouTube mà không ảnh hưởng đến thiết lập hiện có.
 
 ---
 
 ## 🌟 Tính Năng Nổi Bật
 
-### 💛 1. Locket Gold VIP - hungw. Edition (Mở Khóa Toàn Diện)
-- **Kích hoạt gói thuê bao Gold vĩnh viễn**: Bẻ khóa thông qua RevenueCat (`api.revenuecat.com` & `api.rc-backup.com`) với hạn dùng trọn đời đến năm 2099.
-- **Mở khóa 360+ cấu hình Firebase Remote Config**:
-  - Gỡ bỏ hoàn toàn giới hạn thời lượng quay video: kéo dài lên đến **60 giây** (so với mặc định 3s - 10s).
-  - Tải ảnh chất lượng gốc siêu nét: kích thước tối đa **2560px - 4096px**, chất lượng 1.0 (Full HD+ / 2K).
-  - Mở khóa toàn bộ bộ lọc máy ảnh (Looks, Costumes, Light & FX, Cute, Special), chủ đề máy ảnh (Camera Theme) và toàn bộ **Khung viền Widget cao cấp ngoài màn hình chính (Custom Widget Frames)**.
-  - Tăng giới hạn số lượng bạn bè lên tới **999.999 bạn bè** (không giới hạn).
-  - **Mega Pack 310+ Custom Captions (Chú thích tùy chỉnh) chia làm 11 danh mục**:
-    1. `👑 Độc Quyền hungw.` (10 mẫu VIP mang thương hiệu `hungw.`)
-    2. `🎨 Tính Năng Gốc Locket` (14 tính năng tương tác: Nhạc đang phát, Thời tiết, Vị trí, Giờ, Chuỗi, Cung hoàng đạo, Bình chọn Poll, Bảng màu, Đếm số Locket, Link, Trích dẫn Quote, Tin nóng Breaking News)
-    3. `☑️ Chứng Nhận Của Locket` (18 mẫu huy hiệu tích xanh Apple SF Symbols `checkmark.seal.fill`, Vương miện `crown.fill`, Đang trực tiếp `circle.fill`, Quay 4K `record.circle.fill`)
-    4. `💕 Tình Yêu & Cơm Chó` (32 mẫu thả thính & cặp đôi ngọt ngào)
-    5. `💅 Gen Z Slay & Xéo Xắt` (42 mẫu slay, thần thái, visual đỉnh nóc)
-    6. `🔥 Trend TikTok & Độc Lạ` (54 mẫu câu nói viral TikTok)
-    7. `🤡 Meme & Hài Hước` (41 mẫu hài hước, hóng drama, check VAR)
-    8. `🫠 Bất Ổn & Hết Cứu` (59 mẫu tâm trạng đêm khuya, overthinking)
-    9. `☕ Daily, Chill & Đời Sống` (36 mẫu cà phê, trà sữa, Matcha, Mixue, đi biển, đi ngủ, pin 1%)
-    10. `💸 Deadline & Tiền Bạc` (10 mẫu đi làm, học tập, độc lập tài chính)
-    11. `🎄 Lễ Hội & Sự Kiện` (14 mẫu Tết Nguyên Đán, Valentine, 8/3, 2/9, Trung Thu, 20/10, Halloween, Giáng Sinh, Năm Mới - đã mở khóa giới hạn thời gian để dùng quanh năm 24/7).
-  - Kích hoạt tính năng khôi phục chuỗi miễn phí (Free Streak Recovery) và chọn biểu tượng ứng dụng độc quyền (App Icon Picker).
-- **Huy hiệu vàng trang cá nhân (Gold Badge)**: Duy trì huy hiệu xác minh màu vàng Gold VIP cố định và đồng bộ hóa trên mọi màn hình bạn bè, feed và hồ sơ cá nhân.
-- **Xóa bộ nhớ đệm ETag**: Loại bỏ header `x-revenuecat-etag` ngăn chặn phản hồi `304 Not Modified`, đảm bảo tài khoản luôn nhận trạng thái Gold VIP mới nhất.
+### 🔴 1. YouTube Premium & Chặn Quảng Cáo Triệt Để
 
-### 🔴 2. YouTube Premium (Trải Nghiệm Đỉnh Cao)
-- **Chặn quảng cáo triệt để**:
-  - Chặn đứng mọi video ad trước video (preroll), giữa video (midroll) và quảng cáo dạng đệm (bumper ads).
-  - Loại bỏ hoàn toàn banner tài trợ trên trang chủ (Home), trang tìm kiếm (Search), luồng gợi ý video (Next) và thẻ mua sắm.
-  - Tự động lọc bỏ các video quảng cáo xen kẽ trong luồng YouTube Shorts (`v1/reel/reel_watch_sequence`).
-- **Phát trong nền (Background Playback)**: Thỏa sức nghe nhạc, podcast khi tắt màn hình khóa hoặc khi chuyển sang ứng dụng khác.
-- **Hình trong hình (Picture-in-Picture - PiP)**: Thu nhỏ video thành một cửa sổ nổi tiện lợi trên màn hình chính khi bạn vuốt thoát ứng dụng.
-- **Phụ đề song ngữ & dịch tự động Tiếng Việt**: Tự động chèn phụ đề tiếng Việt (`vi`) chất lượng cao cho các video nước ngoài.
-- **Tối ưu hóa giao diện ứng dụng**: Ẩn nút Tạo/Đăng tải (+) và biểu tượng Immersive gây vướng víu ở thanh điều hướng dưới.
-- **Cơ chế chống nghẽn mạng chuyên sâu**:
-  - Tự động chặn giao thức QUIC (HTTP/3 qua UDP cổng 443) ở đầu danh sách Rule để ép YouTube chuyển sang HTTP/2 qua TCP, giúp công cụ MITM giải mã chính xác và không bỏ sót quảng cáo.
-  - Loại trừ máy chủ phân phối luồng tải nặng `-redirector*.googlevideo.com` khỏi danh sách MITM nhằm tránh tình trạng đầy bộ nhớ VPN và ngăn ngừa lỗi văng ứng dụng (Jetsam crash) trên iOS.
+*Cập nhật và hoàn thiện theo chuẩn mã nguồn mới nhất từ `chengcei/youtube-shadowrocket` và upstream `Maasea/sgmodule`.*
+
+* **Chặn đứng 100% các loại quảng cáo video**:
+  * Loại bỏ hoàn toàn quảng cáo đầu video (Preroll), giữa video (Midroll), cuối video (Postroll) và quảng cáo đệm không thể bỏ qua (Bumper ads).
+  * Chặn triệt để banner nhà tài trợ, bài đăng quảng cáo trong bảng tin trang chủ (Home feed), trang kết quả tìm kiếm (Search) và danh sách video đề xuất tiếp theo (Next feed).
+  * Lọc sạch quảng cáo xen kẽ trong luồng video ngắn **YouTube Shorts** (`v1/reel/reel_watch_sequence`).
+* **Phát âm thanh trong nền (Background Audio Playback)**:
+  * Nghe nhạc, podcast liền mạch khi tắt màn hình khóa hoặc khi chuyển sang lướt ứng dụng khác (Facebook, Safari, Messenger).
+  * Hỗ trợ đầy đủ widget điều khiển trên màn hình khóa (Lock Screen), Trung tâm điều khiển (Control Center) và các nút điều khiển vật lý/cảm ứng trên tai nghe Apple AirPods / tai nghe Bluetooth.
+* **Hình trong hình (Picture-in-Picture - PiP)**:
+  * Tự động thu nhỏ video thành một cửa sổ nổi linh hoạt trên màn hình chính khi bạn vuốt thoát khỏi ứng dụng YouTube.
+  * Tự do phóng to/thu nhỏ (pinch-to-zoom), di chuyển đến bất kỳ góc nào trên màn hình, hoặc vuốt tạm vào mép màn hình để chỉ nghe tiếng mà không vướng tầm nhìn.
+* **Tự động dịch & nhúng phụ đề song ngữ Tiếng Việt (`vi`)**:
+  * Tự động phát hiện và dịch phụ đề các video quốc tế (tiếng Anh, Hàn, Nhật, Trung, Pháp, Tây Ban Nha,...) sang tiếng Việt chuẩn ngữ nghĩa.
+  * Hiển thị phụ đề song ngữ thông minh `@Enhance (vi)` trực tiếp trong trình phát YouTube.
+* **Cấu hình YouTube Shorts thông minh (`blockShorts: false`)**:
+  * Giữ nguyên tính năng lướt xem video ngắn Shorts mà không bị ẩn hay lỗi giao diện, nhưng loại bỏ toàn bộ các clip quảng cáo tài trợ xuất hiện giữa các video.
+* **Lược bỏ thành phần thừa & tối ưu hóa giao diện (`blockUpload: true, blockImmersive: true`)**:
+  * Ẩn nút Tạo/Đăng tải dấu cộng `(+)` ở chính giữa thanh điều hướng dưới cùng, giúp giao diện gọn gàng, tránh bấm nhầm.
+  * Ẩn các banner gợi ý đắm chìm (immersive popups) và các thông báo phiền phức.
+* **Hệ thống xử lý kịch bản phân luồng (Script Pipeline)**:
+  1. `youtube.response`: Xử lý phản hồi Protobuf nhị phân từ máy chủ `youtubei.googleapis.com` trên các điểm cuối API: `browse`, `next`, `player`, `search`, `reel/reel_watch_sequence`, `guide`, `account/get_setting`, `get_watch`, `log_event`, `config`. Argument truyền vào:
+     ```json
+     {"captionLang":"vi","blockUpload":true,"blockImmersive":true,"blockShorts":false,"debug":false}
+     ```
+  2. `youtube.request.init`: Can thiệp yêu cầu phát luồng `initplayback` trên máy chủ phân phối nội dung `*.googlevideo.com`, cấu hình chế độ nhị phân `binary-body-mode=1`, `requires-body=1` và tham số `captionLang: "vi"` để loại bỏ thông tin quảng cáo ngay trước khi video bắt đầu tải.
+  3. `youtube.request.log_event`: Chặn bắt và xử lý điểm cuối `log_event` của Google, ngăn chặn việc báo cáo số liệu xem quảng cáo về hệ thống YouTube.
 
 ---
 
-## 📋 Danh Mục Tập Tin Trong Kho Lưu Trữ
+### 💛 2. Locket Gold VIP - hungw. Edition
 
-| Tên tập tin | Định dạng | Mục đích sử dụng |
-|---|---|---|
-| `shadowrocket_locket_youtube.conf` | Configuration Profile | File cấu hình tổng thể độc lập (Standalone). Phù hợp cho người dùng muốn áp dụng trọn vẹn toàn bộ cấu hình mạng, DNS, quy tắc định tuyến cùng Locket Gold và YouTube. |
-| `shadowrocket_locket_youtube.sgmodule` | Shadowrocket Module | Module mở rộng cắm và chạy. Phù hợp cho người dùng đang có sẵn cấu hình node proxy/VPN riêng (như 4G data, proxy cá nhân) và chỉ muốn bật thêm tính năng Locket & YouTube mà không làm thay đổi các thiết lập mạng hiện có. |
-| `README.md` | Tài liệu Markdown | Hướng dẫn cài đặt, kích hoạt chứng chỉ CA Root, bật HTTPS Decryption và triển khai lên GitHub. |
-
----
-
-## 🛠️ Hướng Dẫn Cài Đặt Chi Tiết Từng Bước Trên iOS
-
-Để các tính năng giải mã và chỉnh sửa luồng dữ liệu (HTTPS Decryption / MITM) hoạt động được trên iPhone/iPad, bạn cần thực hiện tuần tự theo các bước chuẩn hóa dưới đây.
-
----
-
-### Bước 1: Tạo & Cài Đặt Chứng Chỉ CA Root Vào Hệ Thống iOS
-
-> ⚠️ **LƯU Ý QUAN TRỌNG**: Nếu bạn bỏ qua bước cài chứng chỉ và bật tin cậy, Shadowrocket sẽ không thể giải mã các yêu cầu bảo mật HTTPS từ Locket và YouTube, dẫn tới tính năng không có hiệu lực hoặc báo lỗi mất kết nối.
-
-1. **Khởi tạo chứng chỉ CA trong Shadowrocket**:
-   - Mở ứng dụng **Shadowrocket** trên iPhone/iPad.
-   - Nhấn vào tab **Cài đặt (Settings)** (biểu tượng bánh răng ở góc dưới cùng bên phải).
-   - Chọn mục **Chứng chỉ (Certificate)**.
-   - Nhấn vào dòng **Tạo chứng chỉ CA mới (Generate a New CA)**.
-   - Tiếp tục chọn **Cài đặt chứng chỉ vào hệ thống (Install CA to System)**.
-   - Ứng dụng sẽ tự động mở trình duyệt Safari. Khi Safari hiển thị hộp thoại thông báo: *"Trang web này đang cố gắng tải về một hồ sơ cấu hình. Bạn có muốn cho phép không?"*, hãy chọn **Cho phép (Allow)**.
-   - Khi có thông báo *Đã tải về hồ sơ (Profile Downloaded)*, chọn **Đóng (Close)**.
-
-2. **Cài đặt hồ sơ cấu hình vào máy**:
-   - Thoát ra màn hình chính, mở ứng dụng **Cài đặt (Settings)** mặc định của iOS.
-   - Ngay phía dưới thông tin tài khoản Apple ID, bạn sẽ thấy dòng chữ **Đã tải về hồ sơ (Profile Downloaded)**. Nhấn vào mục này (hoặc vào *Cài đặt chung > Quản lý VPN & Thiết bị*).
-   - Nhấn vào hồ sơ có tên **Shadowrocket...**
-   - Nhấn nút **Cài đặt (Install)** ở góc trên bên phải màn hình.
-   - Nhập mật khẩu mở khóa màn hình iPhone của bạn.
-   - Tiếp tục nhấn **Cài đặt (Install)** ở bảng cảnh báo, sau đó nhấn xác nhận **Cài đặt (Install)** một lần nữa ở cuối màn hình.
-   - Nhấn **Xong (Done)**.
+* **Mở khóa gói đăng ký Locket Gold trọn đời**:
+  * Can thiệp biên nhận giao dịch RevenueCat (`api.revenuecat.com` & `api.rc-backup.com`), gán quyền sở hữu vĩnh viễn đến năm 2099.
+  * Loại bỏ hoàn toàn header bộ nhớ đệm `x-revenuecat-etag` bằng cả bộ lọc tiêu đề mạng (Header Rewrite) và kịch bản can thiệp yêu cầu (Request Script), ngăn chặn mã phản hồi `304 Not Modified`, đảm bảo thiết bị luôn tải về dữ liệu tài khoản VIP mới nhất.
+* **Mở khóa hơn 360+ cấu hình từ xa (Firebase Remote Config Flags)**:
+  * **Video dài 60 giây**: Nâng thời lượng quay video từ mức mặc định (3 giây - 10 giây) lên đến **60 giây** với âm thanh chất lượng cao.
+  * **Tải ảnh độ phân giải gốc 2K / 4K**: Nâng kích thước ảnh tải lên từ chuẩn nén mặc định lên **2560px - 4096px**, giữ chất lượng ảnh sắc nét tuyệt đối.
+  * **Mở khóa toàn bộ Khung viền Widget (Custom Widget Frames)**: Thỏa sức trang trí màn hình chính bằng các mẫu khung độc quyền (Shin-chan, Trung Thu, Golden Frames, Vintage,...).
+  * **Mở khóa toàn bộ Bộ lọc & Chủ đề Máy ảnh (Camera Themes & Filters)**: Looks, Costumes, Goofy, Celebrate, Cute, Special.
+  * **Không giới hạn bạn bè**: Nâng mức giới hạn bạn bè lên tới **999.999 bạn bè**.
+  * **Khôi phục chuỗi miễn phí (Free Streak Recovery)**: Cứu chuỗi gửi ảnh bạn bè không tốn phí.
+  * **Bộ chọn biểu tượng ứng dụng (App Icon Picker)**: Tự do đổi logo Locket trên màn hình chính theo phong cách cá nhân.
+* **Huy hiệu vàng Gold Profile Badge**:
+  * Tự động gán huy hiệu xác minh màu vàng Gold VIP cao cấp vào hồ sơ cá nhân và hiển thị đồng bộ trên trang chủ bạn bè, thanh hoạt động và bảng tin.
 
 ---
 
-### Bước 2: Bật Tin Cậy Hoàn Toàn Cho Chứng Thư Gốc (Root CA)
+## 🎨 Bộ Sưu Tập 310+ Custom Captions Locket
 
-Hệ điều hành iOS yêu cầu người dùng phải xác nhận độ tin cậy thủ công đối với chứng chỉ tự tạo:
+Điểm nhấn độc quyền trong bản phát hành của **hungw.** là bộ sưu tập **hơn 310 mẫu chú thích (Custom Captions)** được tích hợp sẵn vào dữ liệu Remote Config của Locket. Tất cả caption được thiết kế tỉ mỉ với màu nền gradient sống động và biểu tượng đồ họa sắc nét (Apple SF Symbols và Emojis).
+
+> [!TIP]
+> ### 📖 TÀI LIỆU TRA CỨU ĐẦY ĐỦ
+> Để xem danh sách chi tiết từng caption kèm mã định danh (Caption ID), nội dung hiển thị, mã màu nền gradient hex và tên icon, mời bạn truy cập tài liệu độc lập:
+> 
+> 👉 **[BẢNG TRA CỨU CHI TIẾT 310+ CUSTOM CAPTIONS LOCKET (LOCKET_CAPTIONS.md)](./LOCKET_CAPTIONS.md)**
+
+### Tóm Tắt 11 Danh Mục Chú Thích
+
+| # | Danh mục | Số lượng | Đặc điểm nổi bật |
+|:---:|---|:---:|---|
+| **1** | `👑 Độc Quyền hungw.` | 10 mẫu | Huy hiệu nhận diện thương hiệu `hungw.` VIP, Gold VIP, Dev Edition, Exclusive, Luxury Crown. |
+| **2** | `🎨 Tính Năng Gốc Locket` | 14 mẫu | Các widget động tích hợp sâu vào hệ thống: Nhạc đang phát (Spotify/Apple Music), Thời tiết, Vị trí, Giờ thực, Chuỗi Streak, Cung hoàng đạo, Poll bình chọn, Bảng màu, Đếm số Locket, Trích dẫn (Quote), Tin nóng (Breaking News). |
+| **3** | `☑️ Chứng Nhận Của Locket` | 18 mẫu | Huy hiệu tích xanh xác minh Apple SF Symbols (`checkmark.seal.fill`), Vương miện (`crown.fill`), Chế độ trực tiếp (`circle.fill`), Quay 4K 60FPS (`record.circle.fill`), Không làm phiền. |
+| **4** | `💕 Tình Yêu & Cơm Chó` | 34 mẫu | Thả thính ngọt ngào, cặp đôi, hẹn hò, tỏ tình, nhớ người yêu, lời hứa lãng mạn. |
+| **5** | `💅 Gen Z Slay & Xéo Xắt` | 41 mẫu | Thần thái visual đỉnh nóc, slay queen, +10000 Aura, độc lập, cuốn hút, kiêu kỳ. |
+| **6** | `🔥 Trend TikTok & Độc Lạ` | 54 mẫu | Tổng hợp toàn bộ câu nói viral đình đám nhất trên mạng xã hội TikTok. |
+| **7** | `🤡 Meme & Hài Hước` | 22 mẫu | Hài hước giải trí, check VAR, hóng drama, tự luyến vui vẻ. |
+| **8** | `🫠 Bất Ổn & Hết Cứu` | 41 mẫu | Tâm trạng đêm muộn, overthinking, bất ổn đáng yêu, những ngày mệt mỏi cần được dỗ dành. |
+| **9** | `☕ Daily, Chill & Đời Sống` | 52 mẫu | Đời sống thường nhật: cà phê sáng, trà sữa matcha, đi dạo phố, đi biển, đi ngủ, pin 1%. |
+| **10** | `💸 Deadline & Tiền Bạc` | 9 mẫu | Tâm trạng đi làm, chạy deadline, kiếm tiền, tự chủ tài chính. |
+| **11** | `🎄 Lễ Hội & Sự Kiện` | 15 mẫu | Tết Nguyên Đán, Giáng Sinh, Valentine, Trung Thu, Halloween, 8/3, 20/10 — đã mở khóa để sử dụng quanh năm 24/7. |
+
+### Cách Chọn & Sử Dụng Caption Trong Ứng Dụng Locket
+1. Mở ứng dụng **Locket** và chụp một bức ảnh hoặc nhấn giữ để quay video (lên đến 60 giây).
+2. Nhấn vào biểu tượng **Chú thích (Caption)** trên màn hình chỉnh sửa hoặc vuốt ngang danh sách mẫu chú thích bên dưới ảnh.
+3. Chạm vào danh mục bạn yêu thích và chọn mẫu caption muốn gửi. Màu nền gradient và biểu tượng tương ứng sẽ tự động hiển thị lung linh trên bức ảnh của bạn.
+4. Nhấn nút **Gửi (Send)** đến bạn bè hoặc ghim lên tiện ích màn hình chính Widget.
+
+---
+
+## ⚡ Cơ Chế Chuyên Sâu: Chặn UDP Cổng 443 (QUIC / HTTP3)
+
+Hiểu rõ nguyên lý hoạt động của quy tắc chặn UDP cổng 443 sẽ giúp bạn hiểu tại sao Shadowrocket có thể chặn sạch quảng cáo YouTube mà các bộ lọc thông thường khác thường xuyên thất bại.
+
+```
+                          ┌──────────────────────────────────────────────┐
+                          │     Ứng dụng YouTube trên iOS khởi chạy      │
+                          └──────────────────────┬───────────────────────┘
+                                                 │
+                                     (1) Cố gắng kết nối
+                                       UDP 443 (QUIC)
+                                                 │
+                                                 ▼
+                          ┌──────────────────────────────────────────────┐
+                          │           Quy tắc Shadowrocket:              │
+                          │ AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT  │
+                          └──────────────────────┬───────────────────────┘
+                                                 │
+                                    (2) REJECT ngay tức khắc
+                                    (ICMP Port Unreachable)
+                                                 │
+                                                 ▼
+                          ┌──────────────────────────────────────────────┐
+                          │   Client YouTube tự động chuyển dự phòng:    │
+                          │       Graceful Fallback sang TCP HTTPS       │
+                          └──────────────────────┬───────────────────────┘
+                                                 │
+                                     (3) Kết nối TCP cổng 443
+                                       Bắt tay TLS an toàn
+                                                 │
+                                                 ▼
+                          ┌──────────────────────────────────────────────┐
+                          │      Chứng chỉ CA Root của Shadowrocket      │
+                          │     giải mã gói tin HTTPS qua engine MITM    │
+                          └──────────────────────┬───────────────────────┘
+                                                 │
+                                     (4) Thực thi Scripts:
+                                  - Loại bỏ luồng video quảng cáo
+                                  - Kích hoạt PiP & Phát trong nền
+                                  - Tự động nhúng phụ đề Tiếng Việt
+                                                 │
+                                                 ▼
+                          ┌──────────────────────────────────────────────┐
+                          │ Video phát mượt mà, KHÔNG MỘT BÓNG QUẢNG CÁO │
+                          └──────────────────────────────────────────────┘
+```
+
+### Tại Sao YouTube Trên iOS Mặc Định Dùng QUIC / HTTP/3?
+Các kỹ sư Google đã tích hợp giao thức mạng **QUIC** (chạy trên nền UDP tại cổng 443) làm kênh truyền tải ưu tiên số một cho ứng dụng YouTube trên iPhone/iPad. QUIC có ưu điểm giảm độ trễ bắt tay mạng (0-RTT), nhưng các gói tin UDP này sử dụng thuật toán mã hóa độc quyền của Google mà các công cụ proxy TLS thông thường **không thể giải mã MITM**. 
+
+Nếu lưu lượng UDP cổng 443 được phép đi qua, ứng dụng YouTube sẽ trao đổi trực tiếp với máy chủ Google qua QUIC. Kết quả là mọi kịch bản lọc quảng cáo bằng JavaScript và Protobuf đều bị vô hiệu hóa vì không thể can thiệp vào dòng dữ liệu.
+
+### Giải Pháp: Buộc Hạ Cấp Sang HTTPS / TCP Bằng Quy Tắc REJECT
+Trong file cấu hình và module của chúng tôi, quy tắc sau đây được đặt ở **ưu tiên hàng đầu** của danh mục `[Rule]`:
+```ini
+AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT
+```
+- Khi ứng dụng YouTube phát tín hiệu UDP cổng 443 ra ngoài, Shadowrocket sẽ lập tức trả về phản hồi từ chối kết nối (Reject).
+- Ứng dụng YouTube được thiết kế với cơ chế tự thích ứng rất thông minh: khi nhận thấy cổng UDP bị chặn, nó sẽ lập tức tự động chuyển đổi dự phòng (**Graceful Fallback**) sang giao thức tiêu chuẩn **HTTPS (HTTP/2) qua TCP** trong thời gian cực ngắn (<50 mili-giây) mà người dùng không thể nhận thấy bất kỳ sự gián đoạn nào.
+- Khi kết nối đã chuyển sang TCP, công nghệ giải mã HTTPS (MITM) của Shadowrocket sẽ dễ dàng can thiệp vào quá trình bắt tay TLS, cho phép các kịch bản `youtube.response.js` và `youtube.request.js` bóc tách cấu trúc dữ liệu Protobuf, gỡ sạch quảng cáo và mở khóa các tính năng Premium.
+
+### Danh Sách Tên Miền Quảng Cáo Bị Chặn Tận Gốc
+Bên cạnh việc chuyển đổi giao thức, toàn bộ các máy chủ phân phối quảng cáo của Google và DoubleClick đều bị ngăn chặn trực tiếp từ tầng định tuyến:
+- `ad.doubleclick.net`
+- `googleads.g.doubleclick.net`
+- `pagead2.googlesyndication.com`
+- `ade.googlesyndication.com`
+- `tpc.googlesyndication.com`
+
+---
+
+## 🔐 Hướng Dẫn Cài Đặt Chứng Chỉ CA & Kích Hoạt MITM Chuẩn Xác
+
+Để Shadowrocket có quyền giải mã các gói tin HTTPS của YouTube và Locket ngay trên thiết bị của bạn, bạn **bắt buộc** phải hoàn thành 4 giai đoạn dưới đây. Đây là quy trình bảo mật chuẩn của hệ điều hành Apple iOS.
+
+> [!WARNING]
+> Nếu bạn bỏ qua bước cài đặt hoặc chưa bật "Tin cậy hoàn toàn" cho chứng chỉ, Shadowrocket sẽ không thể can thiệp dữ liệu, dẫn đến việc YouTube vẫn xuất hiện quảng cáo hoặc ứng dụng báo mất kết nối Internet.
+
+---
+
+### Giai Đoạn 1: Khởi Tạo & Tải Chứng Chỉ CA Từ Shadowrocket
+
+1. Mở ứng dụng **Shadowrocket** trên iPhone / iPad.
+2. Nhấn vào tab **Cài đặt (Settings)** (biểu tượng bánh răng ở góc dưới cùng bên phải màn hình).
+3. Tìm và nhấn vào mục **Chứng chỉ (Certificate)**.
+4. Nhấn vào dòng chữ **Tạo chứng chỉ CA mới (Generate a New CA)**.
+5. Khi chứng chỉ đã được tạo thành công, nhấn tiếp vào dòng **Cài đặt chứng chỉ vào hệ thống (Install CA to System)**.
+6. Ứng dụng sẽ tự động chuyển hướng mở trình duyệt **Safari** và xuất hiện hộp thoại:
+   > *"Trang web này đang cố gắng tải về một hồ sơ cấu hình. Bạn có muốn cho phép không?"*
+7. Hãy chọn **Cho phép (Allow)**.
+8. Khi màn hình xuất hiện thông báo *"Đã tải về hồ sơ (Profile Downloaded)"*, nhấn **Đóng (Close)**.
+
+---
+
+### Giai Đoạn 2: Cài Đặt Hồ Sơ Cấu Hình Vào Hệ Thống iOS
+
+1. Thoát ra màn hình chính, mở ứng dụng **Cài đặt (Settings)** mặc định của iOS.
+2. Ngay phía dưới thông tin tài khoản Apple ID / iCloud ở đầu trang, bạn sẽ thấy mục **Đã tải về hồ sơ (Profile Downloaded)** xuất hiện. Nhấn vào mục này.
+   *(Nếu không thấy, bạn vào: Cài đặt > Cài đặt chung > Quản lý VPN & Thiết bị).*
+3. Nhấn vào hồ sơ có tên **Shadowrocket...**
+4. Nhấn nút **Cài đặt (Install)** ở góc trên cùng bên phải.
+5. Nhập **Mật mã mở khóa màn hình** của thiết bị nếu được yêu cầu.
+6. Khi bảng cảnh báo về chứng chỉ xuất hiện, tiếp tục nhấn **Cài đặt (Install)** ở góc trên bên phải.
+7. Nhấn xác nhận **Cài đặt (Install)** thêm một lần nữa ở bảng thông báo xuất hiện dưới đáy màn hình.
+8. Nhấn nút **Xong (Done)**.
+
+---
+
+### Giai Đoạn 3: Bật Tin Cậy Hoàn Toàn (Full Trust) Cho Chứng Thư Gốc
+
+Hệ điều hành iOS yêu cầu người dùng phải xác nhận ủy quyền tin cậy tuyệt đối thủ công cho các chứng chỉ tự sinh:
 
 1. Trong ứng dụng **Cài đặt (Settings)** của iOS, chọn **Cài đặt chung (General)**.
 2. Nhấn vào mục đầu tiên: **Giới thiệu (About)**.
-3. Cuộn xuống dưới cùng của trang, chọn **Cài đặt tin cậy chứng nhận (Certificate Trust Settings)**.
-4. Tại khu vực **"Bật tin cậy đầy đủ cho các chứng thư gốc" (ENABLE FULL TRUST FOR ROOT CERTIFICATES)**, bạn sẽ thấy tên chứng chỉ CA của Shadowrocket vừa cài đặt.
-5. Gạt công tắc bên cạnh tên chứng chỉ sang trạng thái **BẬT (Màu xanh lục)**.
-6. Khi hộp thoại cảnh báo của Apple xuất hiện với nội dung *"Việc bật chứng chỉ gốc sẽ cho phép bên thứ ba tin cậy bất kỳ chứng nhận nào do chứng thư gốc đó cấp..."*, hãy chọn **Tiếp tục (Continue)**.
+3. Cuộn xuống vị trí dưới cùng của danh sách, chọn **Cài đặt tin cậy chứng nhận (Certificate Trust Settings)**.
+4. Tại khu vực có tiêu đề **"BẬT TIN CẬY ĐẦY ĐỦ CHO CÁC CHỨNG THƯ GỐC" (ENABLE FULL TRUST FOR ROOT CERTIFICATES)**, bạn sẽ thấy tên chứng chỉ Shadowrocket vừa cài đặt.
+5. Gạt công tắc bên cạnh chứng chỉ sang trạng thái **BẬT (Màu xanh lá cây)**.
+6. Một hộp thoại cảnh báo của Apple sẽ bật lên với nội dung:
+   > *"Việc bật chứng chỉ gốc sẽ cho phép bên thứ ba tin cậy bất kỳ chứng nhận nào do chứng thư gốc đó cấp..."*
+7. Hãy yên tâm chọn **Tiếp tục (Continue)** vì đây chính là chứng chỉ nội bộ do ứng dụng Shadowrocket trên máy bạn tự quản lý.
 
 ---
 
-### Bước 3: Kích Hoạt Tính Năng Giải Mã HTTPS (HTTPS Decryption) Trong Ứng Dụng
+### Giai Đoạn 4: Bật Tính Năng Giải Mã HTTPS (HTTPS Decryption) Trong Shadowrocket
 
-1. Mở lại ứng dụng **Shadowrocket**.
-2. Chuyển sang tab **Cài đặt (Settings)** ở góc dưới bên phải.
-3. Cuộn xuống tìm mục **Giải mã HTTPS (HTTPS Decryption)**.
-4. Gạt công tắc **Giải mã HTTPS (HTTPS Decryption)** sang trạng thái **BẬT (Màu cam/xanh)**.
-5. Đảm bảo mục **Tạo chứng chỉ CA (Generate CA)** hiển thị trạng thái đã cài đặt và có biểu tượng dấu tích xanh hợp lệ.
-
----
-
-### Bước 4: Lựa Chọn Cài Đặt File Cấu Hình (.conf) Hoặc Module (.sgmodule)
-
-Bạn chỉ cần chọn **MỘT TRONG HAI** phương pháp cài đặt phù hợp với nhu cầu của mình:
-
-#### Lựa chọn A: Cài đặt qua File Cấu Hình (.conf) — Dành cho cấu hình độc lập
-
-- **Cách 1: Tải trực tiếp qua liên kết Raw GitHub (Khuyên dùng)**:
-  1. Trong Shadowrocket, nhấn vào tab **Cấu hình (Config)** ở thanh điều hướng dưới.
-  2. Nhấn vào biểu tượng dấu cộng **(+)** ở góc trên cùng bên phải.
-  3. Dán đường link Raw của file `.conf` vào khung **URL**:
-     ```text
-     https://raw.githubusercontent.com/<USERNAME>/<REPO_NAME>/main/shadowrocket_locket_youtube.conf
-     ```
-  4. Nhấn nút **Tải về (Download)**.
-  5. Sau khi tải xong, bạn sẽ thấy file xuất hiện trong danh sách cấu hình. Hãy chạm vào tên file và chọn **Sử dụng cấu hình (Use Config)**. Tập tin có dấu chấm tròn màu cam/vàng bên cạnh chính là cấu hình đang hoạt động.
-
-- **Cách 2: Nhập qua Tệp cục bộ (Local / iCloud Drive)**:
-  1. Tải file `shadowrocket_locket_youtube.conf` về ứng dụng **Tệp (Files)** trên iPhone.
-  2. Vào Shadowrocket > tab **Cấu hình (Config)** > chọn **Nhập từ Tệp (Import from Cloud / Files)**.
-  3. Chọn file `.conf` vừa lưu. Nhấn vào file và chọn **Sử dụng cấu hình (Use Config)**.
+1. Quay trở lại mở ứng dụng **Shadowrocket**.
+2. Nhấn vào tab **Cài đặt (Settings)** ở góc dưới bên phải màn hình.
+3. Cuộn xuống phần thiết lập và tìm mục **Giải mã HTTPS (HTTPS Decryption)**.
+4. Gạt công tắc **Giải mã HTTPS (HTTPS Decryption)** sang trạng thái **BẬT (Màu cam hoặc xanh)**.
+5. Kiểm tra dòng **Tạo chứng chỉ CA (Generate CA)**: Đảm bảo có biểu tượng dấu tích chữ V màu xanh lá báo hiệu chứng chỉ đã sẵn sàng hoạt động.
 
 ---
 
-#### Lựa chọn B: Cài đặt qua Module (.sgmodule) — Ghép vào cấu hình sẵn có
+## 📲 Hướng Dẫn Cài Đặt Cấu Hình (.conf) & Module (.sgmodule)
 
-Nếu bạn đang dùng sẵn một gói cấu hình riêng (như proxy 4G, cấu hình chuyển vùng) và muốn giữ nguyên các node kết nối hiện tại:
+Bạn chỉ cần chọn **MỘT TRONG HAI** hình thức cài đặt dưới đây tùy theo nhu cầu cá nhân:
 
-1. Mở Shadowrocket, vào tab **Cấu hình (Config)**.
-2. Cuộn màn hình xuống khu vực có tiêu đề **Modules**.
-3. Nhấn vào biểu tượng dấu cộng **(+)** ở góc trên bên phải danh sách Modules.
-4. Dán đường link Raw của file `.sgmodule` vào ô **URL**:
+### Lựa Chọn 1: Sử Dụng Cấu Hình Độc Lập (.conf) — *Khuyên Dùng Cho Người Dùng Mới*
+Cấu hình `.conf` áp dụng trọn vẹn toàn bộ các thiết lập định tuyến, tối ưu DNS, ngăn chặn rò rỉ dữ liệu và tích hợp sẵn đầy đủ Locket Gold + YouTube Premium.
+
+1. Trong ứng dụng Shadowrocket, mở tab **Cấu hình (Config)** ở thanh điều hướng dưới.
+2. Nhấn vào dấu cộng **(+)** ở góc trên cùng bên phải màn hình.
+3. Dán liên kết Raw chính thức vào ô **URL**:
    ```text
-   https://raw.githubusercontent.com/<USERNAME>/<REPO_NAME>/main/shadowrocket_locket_youtube.sgmodule
+   https://raw.githubusercontent.com/hung2705/OhYeah275/main/shadowrocket_locket_youtube.conf
    ```
-5. Nhấn **Tải về (Download)**.
-6. Tìm module vừa tải trong danh sách Modules và gạt công tắc sang trạng thái **BẬT (Màu cam/xanh)**.
+4. Nhấn nút **Tải về (Download)**.
+5. Trong danh sách cấu hình cục bộ, chạm nhẹ vào tên file `shadowrocket_locket_youtube.conf` và chọn dòng **Sử dụng cấu hình (Use Config)**. Tập tin có dấu chấm tròn màu cam/vàng bên cạnh chính là cấu hình đang được áp dụng.
 
 ---
 
-### Bước 5: Kích Hoạt Kết Nối VPN & Kiểm Tra Tính Năng
+### Lựa Chọn 2: Sử Dụng Module Mở Rộng (.sgmodule) — *Dành Cho Người Đã Có Proxy Riêng*
+Nếu bạn đang sử dụng một cấu hình riêng (như proxy cá nhân, gói data 4G viễn thông, server vượt tường lửa quốc tế) và muốn giữ nguyên danh sách máy chủ proxy đó:
 
-1. **Khởi động kết nối Shadowrocket**:
-   - Về màn hình chính (tab **Home**) của Shadowrocket.
-   - Gạt công tắc kết nối chính ở trên cùng sang **BẬT (Connected)**.
-   - Nếu là lần đầu tiên sử dụng, iOS sẽ hỏi cấp quyền thêm cấu hình VPN. Hãy nhập Touch ID / Face ID / Mật mã màn hình để cho phép.
-
-2. **Khởi động lại các ứng dụng Locket và YouTube (Bắt buộc)**:
-   - Vuốt từ dưới đáy màn hình lên và dừng ở giữa để mở màn hình chuyển đổi ứng dụng đa nhiệm (App Switcher).
-   - **Vuốt tắt hoàn toàn ứng dụng Locket và YouTube** để xóa bộ nhớ đệm cũ trong phiên làm việc trước.
-
-3. **Kiểm tra tính năng Locket Gold VIP**:
-   - Mở ứng dụng **Locket**.
-   - Chuyển sang trang **Cá nhân (Profile)**: Bạn sẽ thấy **Huy hiệu vàng Locket Gold** xuất hiện rực rỡ bên cạnh tên người dùng.
-   - Thử giữ nút quay phim: Giờ đây bạn có thể quay video liên tục lên đến **60 giây**.
-   - Vào cài đặt tiện ích: Mở khóa toàn bộ các khung widget độc quyền và biểu tượng ứng dụng cao cấp.
-
-4. **Kiểm tra tính năng YouTube Premium**:
-   - Mở ứng dụng **YouTube**.
-   - Chọn mở bất kỳ video nào thường có nhiều quảng cáo: Video sẽ phát ngay lập tức, hoàn toàn không có quảng cáo xuất hiện trước hay giữa video.
-   - Đang xem video, vuốt màn hình để về màn hình chính (Home) của iPhone: Video sẽ tự động thu nhỏ về góc màn hình dưới dạng **Hình trong hình (PiP)**.
-   - Khóa màn hình iPhone: Âm thanh của video vẫn tiếp tục phát liền mạch mà không bị ngắt.
-   - Mở video tiếng nước ngoài (tiếng Anh, Hàn, Nhật,...): Phụ đề tiếng Việt (`vi`) sẽ tự động được dịch và hiển thị song song.
+1. Trong ứng dụng Shadowrocket, vào tab **Cấu hình (Config)**.
+2. Cuộn xuống khu vực có tiêu đề **Modules**.
+3. Nhấn vào dấu cộng **(+)** ở góc trên bên phải khung Modules.
+4. Dán liên kết Raw của module vào ô **URL**:
+   ```text
+   https://raw.githubusercontent.com/hung2705/OhYeah275/main/shadowrocket_locket_youtube.sgmodule
+   ```
+5. Nhấn nút **Tải về (Download)**.
+6. Tìm module vừa tải trong danh sách và gạt công tắc bên cạnh sang trạng thái **BẬT**.
 
 ---
 
-## 🚀 Hướng Dẫn Đẩy Lên GitHub & Lấy Link Raw Cho iPhone
+## 🎬 Hướng Dẫn Kích Hoạt Phát Trong Nền (Background) & Hình Trong Hình (PiP)
 
-Để lưu trữ các file cấu hình này lên kho lưu trữ GitHub cá nhân của bạn, giúp việc cập nhật và chia sẻ cho người thân hoặc thiết bị khác trở nên dễ dàng:
+Sau khi cài đặt xong chứng chỉ và cấu hình, bạn có thể tận hưởng trọn vẹn trải nghiệm xem video cao cấp như tài khoản YouTube Premium trả phí.
 
-### 1. Chuẩn bị kho lưu trữ trên GitHub
-1. Truy cập vào [GitHub.com](https://github.com) và đăng nhập vào tài khoản của bạn.
-2. Nhấn nút **New repository** (Tạo kho lưu trữ mới).
-3. Đặt tên kho lưu trữ (ví dụ: `Shadowrocket-VIP`), chọn chế độ **Public** (Công khai) để Shadowrocket trên điện thoại có thể truy cập tải file mà không cần mật khẩu.
-4. Nhấn **Create repository**.
+### 1. Bật Tính Năng PiP Của Hệ Điều Hành iOS
+Để tính năng Hình trong hình hoạt động trơn tru nhất:
+1. Mở **Cài đặt (Settings)** trên iPhone.
+2. Chọn **Cài đặt chung (General)** > **Hình trong hình (Picture in Picture)**.
+3. Đảm bảo công tắc **Bắt đầu PiP tự động (Start PiP Automatically)** đang ở trạng thái **BẬT (Màu xanh)**.
+4. Mở ứng dụng **YouTube** > Nhấn vào ảnh đại diện cá nhân ở góc dưới bên phải > Chọn biểu tượng bánh răng **Cài đặt** ở góc trên > Chọn mục **Chung (General)** > Gạt bật công tắc **Hình trong hình (Picture-in-Picture)** nếu có.
 
-### 2. Thực hiện lệnh Git từ máy tính
-Mở công cụ dòng lệnh (PowerShell hoặc Terminal) tại thư mục chứa dự án và nhập các lệnh sau:
+### 2. Cách Sử Dụng Chế Độ Hình Trong Hình (PiP)
+- Mở một video bất kỳ trên YouTube và để video phát bình thường.
+- **Vuốt từ mép dưới màn hình lên** (đối với iPhone có Face ID) hoặc **nhấn nút Home** (đối với iPhone có Touch ID) để trở về màn hình chính.
+- Video sẽ tự động thu nhỏ thành một khung hình nổi mượt mà ngay trên màn hình chính:
+  - Dùng hai ngón tay kéo để **phóng to** hoặc **thu nhỏ** khung hình video.
+  - Kéo khung hình đến bất kỳ góc nào thuận tiện.
+  - Vuốt khung hình về sát mép màn hình trái/phải để tạm ẩn hình ảnh mà vẫn nghe trọn vẹn âm thanh.
+
+### 3. Cách Sử Dụng Chế Độ Phát Trong Nền (Background Playback)
+- Mở bài hát, podcast hoặc video yêu thích trên ứng dụng YouTube.
+- Nhấn **nút nguồn khóa màn hình iPhone** hoặc **chuyển sang ứng dụng khác** (Safari, Facebook, Game,...).
+- Âm thanh sẽ tiếp tục phát liên tục mà không hề bị dừng hay gián đoạn.
+- Bạn có thể chuyển bài, dừng/phát nhạc, chỉnh âm lượng trực tiếp từ:
+  - Tiện ích Trình phát nhạc tại Màn hình khóa (Lock Screen Widget).
+  - Trung tâm điều khiển (Control Center).
+  - Thao tác chạm cảm ứng trên tai nghe AirPods / tai nghe Bluetooth không dây.
+
+---
+
+## 🚀 Hướng Dẫn Triển Khai Lên GitHub & Lấy Link Raw
+
+Nếu bạn muốn tạo một bản sao lưu cá nhân trên tài khoản GitHub của riêng mình để tiện quản lý và cập nhật:
+
+### 1. Tạo Kho Lưu Trữ (Repository)
+1. Truy cập [GitHub.com](https://github.com) và đăng nhập vào tài khoản cá nhân.
+2. Tạo một repository mới với tên mong muốn (ví dụ: `OhYeah275`).
+3. Chọn chế độ hiển thị **Public (Công khai)** để Shadowrocket có thể tải file cấu hình mà không bị chặn quyền truy cập.
+
+### 2. Thực Hiện Lệnh Git Từ Máy Tính
+Mở công cụ dòng lệnh (Terminal trên macOS/Linux hoặc PowerShell trên Windows) tại thư mục chứa dự án và nhập lần lượt các lệnh:
 
 ```bash
-# 1. Chuyển vào thư mục chứa các file cấu hình
+# 1. Di chuyển vào thư mục chứa mã nguồn cấu hình
 cd "c:\Users\huong\Music\Edge"
 
-# 2. Khởi tạo kho lưu trữ git cục bộ (nếu chưa khởi tạo)
+# 2. Khởi tạo kho lưu trữ Git cục bộ
 git init
 
-# 3. Thêm các file cấu hình, module và hướng dẫn vào staging
-git add shadowrocket_locket_youtube.conf shadowrocket_locket_youtube.sgmodule README.md
+# 3. Thêm các tập tin cấu hình, tài liệu và kịch bản vào vùng chuẩn bị
+git add shadowrocket_locket_youtube.conf shadowrocket_locket_youtube.sgmodule README.md LOCKET_CAPTIONS.md
 
-# 4. Tạo commit lưu trữ phiên bản
-git commit -m "feat: release unified Shadowrocket config and module for Locket Gold & YouTube Premium"
+# 4. Tạo commit lưu lại phiên bản phát hành
+git commit -m "feat: release unified Shadowrocket config & module with YouTube Premium and Locket 310+ captions"
 
-# 5. Đặt tên nhánh chính là main
+# 5. Đổi tên nhánh chính thành main
 git branch -M main
 
-# 6. Liên kết với kho lưu trữ GitHub của bạn (thay thế USERNAME và REPO_NAME bằng thông tin thực tế của bạn)
-git remote add origin https://github.com/<USERNAME>/<REPO_NAME>.git
+# 6. Liên kết với kho lưu trữ từ xa trên GitHub của bạn
+git remote add origin https://github.com/hung2705/OhYeah275.git
 
 # 7. Đẩy toàn bộ dữ liệu lên GitHub
 git push -u origin main
 ```
 
-### 3. Cách lấy liên kết Raw để dán vào Shadowrocket trên iPhone
-Sau khi mã đã được đẩy lên GitHub thành công:
-1. Mở trang web GitHub của bạn trên máy tính hoặc Safari trên iPhone.
-2. Nhấn vào tên file `shadowrocket_locket_youtube.conf` hoặc `shadowrocket_locket_youtube.sgmodule`.
-3. Nhấn vào nút **Raw** ở góc trên bên phải khung xem code.
-4. Trình duyệt sẽ mở một trang chỉ chứa văn bản thuần túy. Hãy sao chép toàn bộ thanh địa chỉ URL. Cấu trúc đường dẫn sẽ có dạng:
-   - Đối với File Cấu hình:
-     ```text
-     https://raw.githubusercontent.com/<USERNAME>/<REPO_NAME>/main/shadowrocket_locket_youtube.conf
-     ```
-   - Đối với Module:
-     ```text
-     https://raw.githubusercontent.com/<USERNAME>/<REPO_NAME>/main/shadowrocket_locket_youtube.sgmodule
-     ```
-5. Dán liên kết này vào mục Cấu hình hoặc Module trong ứng dụng Shadowrocket trên iPhone như đã hướng dẫn ở Bước 4.
+### 3. Cách Lấy Đường Dẫn Raw Để Dán Vào iPhone
+1. Truy cập vào kho lưu trữ của bạn trên trình duyệt Safari hoặc máy tính.
+2. Nhấn vào tên tập tin `shadowrocket_locket_youtube.conf` hoặc `shadowrocket_locket_youtube.sgmodule`.
+3. Nhấn vào nút **Raw** ở góc trên bên phải khung hiển thị mã nguồn.
+4. Sao chép toàn bộ đường dẫn trên thanh địa chỉ của trình duyệt. Cấu trúc liên kết chuẩn sẽ có dạng:
+   - File cấu hình: `https://raw.githubusercontent.com/hung2705/OhYeah275/main/shadowrocket_locket_youtube.conf`
+   - File module: `https://raw.githubusercontent.com/hung2705/OhYeah275/main/shadowrocket_locket_youtube.sgmodule`
 
 ---
 
 ## 🔍 Khắc Phục Sự Cố & Câu Hỏi Thường Gặp (FAQ)
 
-### Q1: Tại sao YouTube vẫn còn quảng cáo hoặc Locket chưa nhận huy hiệu vàng?
-- **Nguyên nhân 1**: Bạn chưa bật công tắc **Giải mã HTTPS (HTTPS Decryption)** trong *Shadowrocket > Cài đặt*.
-- **Nguyên nhân 2**: Bạn chưa gạt công tắc tin cậy chứng chỉ trong *Cài đặt của iPhone > Cài đặt chung > Giới thiệu > Cài đặt tin cậy chứng nhận*.
-- **Nguyên nhân 3**: Chưa tắt hẳn ứng dụng (kill app). Hãy vuốt tắt ứng dụng Locket và YouTube trong bộ chuyển đổi đa nhiệm rồi mở lại.
+### Q1: Tôi đã bật Shadowrocket nhưng YouTube vẫn còn quảng cáo và Locket chưa có Gold?
+> **Khắc phục theo thứ tự sau:**
+> 1. **Chưa tắt hẳn ứng dụng (Kill App)**: Bạn phải mở bộ chuyển đổi đa nhiệm (App Switcher) và **vuốt tắt hoàn toàn ứng dụng Locket và YouTube**, sau đó mới mở lại để ứng dụng xóa cache cũ.
+> 2. **Chưa bật "Tin cậy hoàn toàn"**: Vào *Cài đặt của iPhone > Cài đặt chung > Giới thiệu > Cài đặt tin cậy chứng nhận*, kiểm tra xem chứng chỉ Shadowrocket đã được bật công tắc màu xanh chưa.
+> 3. **Chưa bật Giải mã HTTPS trong Shadowrocket**: Vào *Shadowrocket > Cài đặt > Giải mã HTTPS*, đảm bảo công tắc đang BẬT.
 
-### Q2: Tại sao cấu hình chặn UDP cổng 443 cho googlevideo.com và youtubei.googleapis.com?
-- **Giải thích**: Ứng dụng YouTube sử dụng giao thức QUIC (HTTP/3 chạy trên nền UDP). Vì Shadowrocket chỉ có thể giải mã và can thiệp gói tin TLS qua giao thức TCP, việc chặn cổng UDP sẽ buộc ứng dụng YouTube tự động chuyển đổi dự phòng (fallback) sang giao thức TCP/TLS truyền thống trong vòng dưới 50ms, giúp toàn bộ quy tắc lọc quảng cáo và chèn mã hoạt động ổn định 100%.
+### Q2: Tại sao phải chặn UDP cổng 443 thay vì chỉ chặn tên miền quảng cáo thông thường?
+> **Giải thích:** Ứng dụng YouTube trên iOS ưu tiên truyền dữ liệu qua giao thức QUIC (HTTP/3 trên nền UDP). Do dữ liệu QUIC được mã hóa riêng biệt, proxy TCP thông thường không thể can thiệp. Quy tắc `AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT` sẽ kích hoạt cơ chế fallback của YouTube, buộc ứng dụng chuyển sang kết nối HTTPS qua TCP trong chưa đầy 50ms, giúp Shadowrocket giải mã và loại bỏ quảng cáo thành công 100%.
 
-### Q3: Tại sao danh sách MITM không sử dụng `*.googleapis.com`?
-- **Giải thích**: Google dùng tên miền `googleapis.com` cho hầu hết các dịch vụ cốt lõi trên iOS như App Store, Google Search Safari, xác thực tài khoản Google SSO, Google Drive, Gmail và hàng ngàn ứng dụng bên thứ ba khác. Việc đưa ký tự đại diện `*.googleapis.com` vào giải mã MITM sẽ gây lỗi xác thực chứng chỉ (Certificate Pinning), làm tê liệt kết nối mạng diện rộng. Cấu hình này chỉ can thiệp chính xác vào đúng 2 máy chủ phụ bắt buộc là `firebaseremoteconfig.googleapis.com` (cho Locket) và `youtubei.googleapis.com` (cho YouTube), đảm bảo an toàn tuyệt đối cho hệ thống.
+### Q3: Tại sao cấu hình không đưa `*.googleapis.com` vào danh sách giải mã MITM?
+> **Giải thích:** Hầu như mọi dịch vụ cốt lõi của Apple và Google (App Store, iCloud, Google SSO, Gmail, Google Drive, Safari Search) đều dùng tên miền con của `googleapis.com`. Nếu thêm ký tự đại diện `*.googleapis.com` vào MITM, các ứng dụng có cơ chế ghim chứng chỉ (Certificate Pinning) sẽ lập tức báo lỗi mạng hoặc không đăng nhập được. Cấu hình của chúng tôi chỉ can thiệp chính xác vào hai tên miền phụ chuyên biệt là `firebaseremoteconfig.googleapis.com` (cho Locket) và `youtubei.googleapis.com` (cho YouTube), bảo đảm an toàn và ổn định tuyệt đối cho toàn hệ thống.
+
+### Q4: Video YouTube có bị giảm tốc độ tải khi chạy qua kịch bản lọc không?
+> **Giải thích:** Hoàn toàn không. Toàn bộ các luồng video dung lượng lớn truyền từ máy chủ `googlevideo.com` được xử lý tối ưu với chế độ luồng nhị phân trực tiếp (`binary-body-mode=1`). Shadowrocket chỉ can thiệp vào tiêu đề và cấu trúc dữ liệu Protobuf ở yêu cầu khởi tạo (`initplayback`), các gói dữ liệu video thực tế sau đó được truyền tải với tốc độ gốc tối đa của đường truyền Internet.
 
 ---
 
-## 📜 Giấy Phép & Lời Cảm Ơn
-- Cấu hình và tập lệnh Locket Gold được phát triển và tối ưu bởi **LAMDev** (`leanhminh2104/locketlam`).
-- Mô-đun lọc Protobuf và dịch phụ đề song ngữ YouTube được xây dựng bởi tác giả **Maasea** (`Maasea/sgmodule`).
-- Bộ cấu hình hợp nhất được tinh chỉnh và đóng gói hoàn thiện bởi cộng đồng người dùng Shadowrocket.
+## 📁 Danh Mục Tập Tin Trong Dự Án
+
+```
+├── shadowrocket_locket_youtube.conf    # Cấu hình Standalone hoàn chỉnh cho Shadowrocket
+├── shadowrocket_locket_youtube.sgmodule  # Module mở rộng cắm và chạy cho Shadowrocket
+├── LOCKET_CAPTIONS.md                  # Bảng tra cứu toàn bộ 310+ Custom Captions Locket
+├── README.md                           # Tài liệu hướng dẫn sử dụng chi tiết này
+└── js/
+    ├── locket_gold.js                  # Kịch bản mở khóa quyền sở hữu RevenueCat Gold
+    ├── locket_remote.js                # Kịch bản ghi đè Firebase Remote Config & Captions
+    ├── locket_profile.js               # Kịch bản gán huy hiệu vàng Gold Profile Badge
+    └── deleteHeader.js                 # Kịch bản xóa header ETag chống phản hồi 304
+```
+
+---
+
+## 📜 Bản Quyền & Lời Cảm Ơn
+
+- **Tác giả & Đóng gói**: **hungw.** ([GitHub: hung2705/OhYeah275](https://github.com/hung2705/OhYeah275)).
+- **Upstream YouTube Scripts**: Kịch bản bóc tách Protobuf và dịch phụ đề song ngữ YouTube được phát triển bởi tác giả **Maasea** ([Maasea/sgmodule](https://github.com/Maasea/sgmodule)) và cộng đồng **chengcei/youtube-shadowrocket**.
+- **Locket Scripts**: Kịch bản bẻ khóa RevenueCat và các cờ Remote Config được nghiên cứu và chia sẻ bởi cộng đồng lập trình viên iOS (**LAMDev** / `leanhminh2104`).
+- **Giấy phép**: Phát hành miễn phí vì mục đích học tập và trải nghiệm người dùng phi thương mại.

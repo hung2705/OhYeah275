@@ -6,35 +6,32 @@
 #!homepage=https://github.com/hung2705/OhYeah275
 
 [Rule]
-# Chặn QUIC (HTTP/3 qua UDP) để buộc YouTube chuyển sang HTTP/2 TCP phục vụ giải mã MITM
-AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,UDP)),REJECT
-AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT
+# Chặn toàn bộ UDP port 443 (QUIC / HTTP3) để ngăn triệt để bypass MITM
+AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT
 
-[URL Rewrite]
-# Chặn luồng phân phối quảng cáo YouTube trả về HTTP 200 rỗng
-^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad _ reject-200
+# Chặn các domain phân phối quảng cáo Google / DoubleClick
+DOMAIN,ad.doubleclick.net,REJECT
+DOMAIN,googleads.g.doubleclick.net,REJECT
+DOMAIN,pagead2.googlesyndication.com,REJECT
+DOMAIN,ade.googlesyndication.com,REJECT
+DOMAIN,tpc.googlesyndication.com,REJECT
 
-# Chặn API thống kê, theo dõi và đo lường quảng cáo YouTube
-^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads _ reject-200
-^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) _ reject-200
-^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext _ reject-200
-
-# Chuyển hướng bỏ tham số ctier quảng cáo video YouTube (HTTP 302)
-(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
 
 [Header Rewrite]
 # Xóa ETag header của RevenueCat để ngăn mã phản hồi 304 Not Modified, buộc trả về dữ liệu thuê bao mới
 ^https:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+ header-del x-revenuecat-etag
 ^https:\/\/(api\.revenuecat\.com|api\.rc-backup\.com)\/.+ header-del X-RevenueCat-ETag
 
-[Map Local]
-# Khởi tạo phát video rỗng cho yêu cầu quảng cáo initplayback
-^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data="" status-code=200
-
 [Script]
 # ================= YouTube Premium & Adblock =================
-# Chặn quảng cáo video/feed/Shorts, mở khóa PiP, phát trong nền và phụ đề song ngữ Tiếng Việt
-youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js,argument="{\"captionLang\":\"vi\",\"blockUpload\":true,\"blockImmersive\":true,\"blockShorts\":false,\"debug\":false}"
+# 1. Chặn quảng cáo video/feed/Shorts, mở khóa PiP, phát trong nền và phụ đề song ngữ Tiếng Việt
+youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|log_event|config))(\?(.*))?$,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js,argument="{\"captionLang\":\"vi\",\"blockUpload\":true,\"blockImmersive\":true,\"blockShorts\":false,\"debug\":false}"
+
+# 2. Xử lý yêu cầu khởi tạo phát video (initplayback) loại bỏ quảng cáo đệm
+youtube.request.init = type=http-request,pattern=^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback\?(?:[^&]+&)*ack(?:=[^&]*)?(?:&.*)?$,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.request.js,argument="{\"captionLang\":\"vi\"}"
+
+# 3. Chặn và sửa đổi sự kiện theo dõi quảng cáo (log_event)
+youtube.request.log_event = type=http-request,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/log_event,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.request.js
 
 # ================= Locket Gold VIP - hungw. =================
 # 1. Mở khóa gói bản quyền Locket Gold VIP vĩnh viễn qua RevenueCat
@@ -53,4 +50,4 @@ locket_badge = type=http-request,pattern=^https:\/\/api\.locketcamera\.com\/chan
 locket_user = type=http-response,pattern=^https:\/\/api\.locketcamera\.com\/.+,script-path=https://raw.githubusercontent.com/hung2705/OhYeah275/refs/heads/main/js/locket_profile.js,requires-body=true,max-size=-1,timeout=60
 
 [MITM]
-hostname = %APPEND% -redirector*.googlevideo.com, *.googlevideo.com, www.youtube.com, s.youtube.com, youtubei.googleapis.com, api.revenuecat.com, api.rc-backup.com, firebaseremoteconfig.googleapis.com, api.locketcamera.com
+hostname = %APPEND% *.googlevideo.com, youtubei.googleapis.com, api.revenuecat.com, api.rc-backup.com, firebaseremoteconfig.googleapis.com, api.locketcamera.com
