@@ -19,7 +19,7 @@
 ## 📖 Giới Thiệu Tổng Quan
 
 Dự án cung cấp bộ thiết lập tối ưu toàn diện cho ứng dụng **Shadowrocket** trên iOS, tích hợp đồng thời hai tính năng giải trí và mạng xã hội được ưa chuộng nhất hiện nay:
-1. **Locket Gold VIP (hungw. Edition)**: Bẻ khóa trọn đời bản quyền Locket Gold, mở khóa hơn 360 cờ Firebase Remote Config (quay video 60 giây, tải ảnh gốc Full HD+/2K, toàn bộ khung viền widget, bộ lọc camera) và tích hợp sẵn **hơn 310+ Custom Captions** độc quyền.
+1. **Locket Gold VIP (hungw. Edition)**: Bẻ khóa trọn đời bản quyền Locket Gold, mở khóa hơn 360 cờ Firebase Remote Config (quay video 60 giây, tải ảnh gốc Full HD+/2K, toàn bộ khung viền widget, bộ lọc camera) và tích hợp sẵn **hơn 317+ Custom Captions** độc quyền.
 2. **YouTube Premium & Adblock (Chuẩn Upstream Maasea)**: Chặn đứng mọi loại quảng cáo (video ad, banner, Shorts), mở khóa chế độ Phát trong nền (Background Playback), Hình trong hình (Picture-in-Picture - PiP), tự động tạo phụ đề song ngữ Tiếng Việt (`vi`) và tinh gọn giao diện ứng dụng.
 
 Toàn bộ gói cấu hình được đóng gói dưới hai hình thức tiện lợi:
@@ -80,7 +80,7 @@ Toàn bộ gói cấu hình được đóng gói dưới hai hình thức tiện
 
 ---
 
-## 🎨 Bộ Sưu Tập 310+ Custom Captions Locket
+## 🎨 Bộ Sưu Tập 317+ Custom Captions Locket
 
 Điểm nhấn độc quyền trong bản phát hành của **hungw.** là bộ sưu tập **hơn 310 mẫu chú thích (Custom Captions)** được tích hợp sẵn vào dữ liệu Remote Config của Locket. Tất cả caption được thiết kế tỉ mỉ với màu nền gradient sống động và biểu tượng đồ họa sắc nét (Apple SF Symbols và Emojis).
 
@@ -88,7 +88,7 @@ Toàn bộ gói cấu hình được đóng gói dưới hai hình thức tiện
 > ### 📖 TÀI LIỆU TRA CỨU ĐẦY ĐỦ
 > Để xem danh sách chi tiết từng caption kèm mã định danh (Caption ID), nội dung hiển thị, mã màu nền gradient hex và tên icon, mời bạn truy cập tài liệu độc lập:
 > 
-> 👉 **[BẢNG TRA CỨU CHI TIẾT 310+ CUSTOM CAPTIONS LOCKET (LOCKET_CAPTIONS.md)](./LOCKET_CAPTIONS.md)**
+> 👉 **[BẢNG TRA CỨU CHI TIẾT 317+ CUSTOM CAPTIONS LOCKET (LOCKET_CAPTIONS.md)](./LOCKET_CAPTIONS.md)**
 
 ### Tóm Tắt 11 Danh Mục Chú Thích
 
@@ -333,7 +333,7 @@ git init
 git add shadowrocket_locket_youtube.conf shadowrocket_locket_youtube.sgmodule README.md LOCKET_CAPTIONS.md
 
 # 4. Tạo commit lưu lại phiên bản phát hành
-git commit -m "feat: release unified Shadowrocket config & module with YouTube Premium and Locket 310+ captions"
+git commit -m "feat: release unified Shadowrocket config & module with YouTube Premium and Locket 317+ captions"
 
 # 5. Đổi tên nhánh chính thành main
 git branch -M main
@@ -379,7 +379,7 @@ git push -u origin main
 ```
 ├── shadowrocket_locket_youtube.conf    # Cấu hình Standalone hoàn chỉnh cho Shadowrocket
 ├── shadowrocket_locket_youtube.sgmodule  # Module mở rộng cắm và chạy cho Shadowrocket
-├── LOCKET_CAPTIONS.md                  # Bảng tra cứu toàn bộ 310+ Custom Captions Locket
+├── LOCKET_CAPTIONS.md                  # Bảng tra cứu toàn bộ 317+ Custom Captions Locket
 ├── README.md                           # Tài liệu hướng dẫn sử dụng chi tiết này
 └── js/
     ├── locket_gold.js                  # Kịch bản mở khóa quyền sở hữu RevenueCat Gold
